@@ -1,3 +1,75 @@
+System.register("chunks:///_virtual/AdditionMoneyController.ts", ['./rollupPluginModLoBabelHelpers.js', 'cc'], function (exports) {
+  var _applyDecoratedDescriptor, _inheritsLoose, _initializerDefineProperty, _assertThisInitialized, _createClass, cclegacy, _decorator, CCInteger, tween, Vec3, Label, Component;
+  return {
+    setters: [function (module) {
+      _applyDecoratedDescriptor = module.applyDecoratedDescriptor;
+      _inheritsLoose = module.inheritsLoose;
+      _initializerDefineProperty = module.initializerDefineProperty;
+      _assertThisInitialized = module.assertThisInitialized;
+      _createClass = module.createClass;
+    }, function (module) {
+      cclegacy = module.cclegacy;
+      _decorator = module._decorator;
+      CCInteger = module.CCInteger;
+      tween = module.tween;
+      Vec3 = module.Vec3;
+      Label = module.Label;
+      Component = module.Component;
+    }],
+    execute: function () {
+      var _dec, _dec2, _class, _class2, _descriptor;
+      cclegacy._RF.push({}, "74073kkBu1Ato4ceZaCjtj0", "AdditionMoneyController", undefined);
+      var ccclass = _decorator.ccclass,
+        property = _decorator.property;
+      var AdditionMoneyController = exports('AdditionMoneyController', (_dec = ccclass('AdditionMoneyController'), _dec2 = property({
+        type: CCInteger
+      }), _dec(_class = (_class2 = /*#__PURE__*/function (_Component) {
+        _inheritsLoose(AdditionMoneyController, _Component);
+        function AdditionMoneyController() {
+          var _this;
+          for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+          }
+          _this = _Component.call.apply(_Component, [this].concat(args)) || this;
+          _initializerDefineProperty(_this, "availableTime", _descriptor, _assertThisInitialized(_this));
+          _this._additionMoney = void 0;
+          return _this;
+        }
+        var _proto = AdditionMoneyController.prototype;
+        _proto.start = function start() {
+          var _this2 = this;
+          tween(this.node).by(this.availableTime, {
+            position: new Vec3(0, 200, 0)
+          }) // Move by 100 pixels vertically in 1 second
+          .delay(0.2) // Delay for 1 second before destroying
+          .call(function () {
+            return _this2.node.destroy();
+          }).start();
+        };
+        _proto.update = function update(deltaTime) {};
+        _proto.UpdateText = function UpdateText() {
+          var lb = this.node.getComponent(Label);
+          lb.string = " + " + this._additionMoney.toFixed(0);
+        };
+        _createClass(AdditionMoneyController, [{
+          key: "additionMoney",
+          set: function set(value) {
+            this._additionMoney = value;
+            this.UpdateText();
+          }
+        }]);
+        return AdditionMoneyController;
+      }(Component), _descriptor = _applyDecoratedDescriptor(_class2.prototype, "availableTime", [_dec2], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: null
+      }), _class2)) || _class));
+      cclegacy._RF.pop();
+    }
+  };
+});
+
 System.register("chunks:///_virtual/AsNode.ts", ['cc'], function () {
   var cclegacy;
   return {
@@ -6,6 +78,122 @@ System.register("chunks:///_virtual/AsNode.ts", ['cc'], function () {
     }],
     execute: function () {
       cclegacy._RF.push({}, "a8ec1/JlC1Cvr/v3BByu2Rz", "AsNode", undefined);
+      cclegacy._RF.pop();
+    }
+  };
+});
+
+System.register("chunks:///_virtual/BoundingGiftController.ts", ['./rollupPluginModLoBabelHelpers.js', 'cc'], function (exports) {
+  var _applyDecoratedDescriptor, _inheritsLoose, _initializerDefineProperty, _assertThisInitialized, cclegacy, _decorator, CCInteger, Node, UITransform, Vec3, Component;
+  return {
+    setters: [function (module) {
+      _applyDecoratedDescriptor = module.applyDecoratedDescriptor;
+      _inheritsLoose = module.inheritsLoose;
+      _initializerDefineProperty = module.initializerDefineProperty;
+      _assertThisInitialized = module.assertThisInitialized;
+    }, function (module) {
+      cclegacy = module.cclegacy;
+      _decorator = module._decorator;
+      CCInteger = module.CCInteger;
+      Node = module.Node;
+      UITransform = module.UITransform;
+      Vec3 = module.Vec3;
+      Component = module.Component;
+    }],
+    execute: function () {
+      var _dec, _dec2, _dec3, _dec4, _dec5, _class, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4;
+      cclegacy._RF.push({}, "b0978iMBKNEC7dwXxLZAIZN", "BoundingGiftController", undefined);
+      var ccclass = _decorator.ccclass,
+        property = _decorator.property;
+      var BoundingGiftController = exports('BoundingGiftController', (_dec = ccclass('BoundingGiftController'), _dec2 = property({
+        type: CCInteger
+      }), _dec3 = property({
+        type: CCInteger
+      }), _dec4 = property({
+        type: Node
+      }), _dec5 = property({
+        type: CCInteger
+      }), _dec(_class = (_class2 = /*#__PURE__*/function (_Component) {
+        _inheritsLoose(BoundingGiftController, _Component);
+        function BoundingGiftController() {
+          var _this;
+          for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+          }
+          _this = _Component.call.apply(_Component, [this].concat(args)) || this;
+          _initializerDefineProperty(_this, "speedX", _descriptor, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "speedY", _descriptor2, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "boundingNode", _descriptor3, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "destroyTime", _descriptor4, _assertThisInitialized(_this));
+          _this.leftWall = 0;
+          _this.rightWall = 0;
+          _this.topWall = 0;
+          _this.bottomWall = 0;
+          _this.checkTime = 0;
+          return _this;
+        }
+        var _proto = BoundingGiftController.prototype;
+        _proto.start = function start() {
+          // Get the size of the current scene (screen size)
+          var contentsize = this.boundingNode.getComponent(UITransform).contentSize;
+          this.leftWall = -contentsize.x / 2;
+          this.rightWall = contentsize.x / 2;
+          this.topWall = contentsize.y / 2;
+          this.bottomWall = -contentsize.y / 2;
+          this.checkTime = 0;
+        };
+        _proto.update = function update(dt) {
+          // Update the position based on speed
+          var posX = this.node.position.x + this.speedX * dt;
+          var posY = this.node.position.y + this.speedY * dt;
+
+          // Check for wall collisions and change direction
+          if (posX < this.leftWall) {
+            this.speedX *= -1;
+            posX = this.leftWall;
+          } else if (posX > this.rightWall) {
+            this.speedX *= -1;
+            posX = this.rightWall;
+          }
+          if (posY < this.bottomWall) {
+            this.speedY *= -1;
+            posY = this.bottomWall;
+          } else if (posY > this.topWall) {
+            this.speedY *= -1;
+            posY = this.topWall;
+          }
+          this.node.position = new Vec3(posX, posY, 0);
+          this.checkTime += dt;
+          if (this.checkTime >= this.destroyTime) {
+            this.node.destroy();
+          }
+        };
+        return BoundingGiftController;
+      }(Component), (_descriptor = _applyDecoratedDescriptor(_class2.prototype, "speedX", [_dec2], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return 100;
+        }
+      }), _descriptor2 = _applyDecoratedDescriptor(_class2.prototype, "speedY", [_dec3], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return 100;
+        }
+      }), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, "boundingNode", [_dec4], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: null
+      }), _descriptor4 = _applyDecoratedDescriptor(_class2.prototype, "destroyTime", [_dec5], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: null
+      })), _class2)) || _class));
       cclegacy._RF.pop();
     }
   };
@@ -491,6 +679,12 @@ System.register("chunks:///_virtual/Game.ts", ['cc'], function (exports) {
           this.maxHp = void 0;
           this.currentExp = void 0;
           this.nextExp = void 0;
+          this.incomeBoost = void 0;
+          this.incomeBoostCost = void 0;
+          this.increaseSpeedBoost = void 0;
+          this.increaseSpeedBoostCost = void 0;
+          this.recoveryBoost = void 0;
+          this.recoverBoostCost = void 0;
         }
         GameData.getFullGrapFormat = function getFullGrapFormat() {
           return "{\r\n" + "__typename\r\n" + "id\r\n" + "isLocked\r\n" + "role\r\n" + "createdAt\r\n" + "}";
@@ -587,8 +781,8 @@ System.register("chunks:///_virtual/GraphQlQuery.ts", ['cc'], function (exports)
   };
 });
 
-System.register("chunks:///_virtual/HomeCanvasController.ts", ['./rollupPluginModLoBabelHelpers.js', 'cc'], function (exports) {
-  var _applyDecoratedDescriptor, _initializerDefineProperty, _inheritsLoose, _assertThisInitialized, cclegacy, _decorator, Label, ProgressBar, sp, Component;
+System.register("chunks:///_virtual/HomeCanvasController.ts", ['./rollupPluginModLoBabelHelpers.js', 'cc', './GameDirector.ts', './AdditionMoneyController.ts'], function (exports) {
+  var _applyDecoratedDescriptor, _initializerDefineProperty, _inheritsLoose, _assertThisInitialized, cclegacy, _decorator, Label, ProgressBar, Prefab, Node, RichText, Button, sp, instantiate, Input, Component, GameDirector, AdditionMoneyController;
   return {
     setters: [function (module) {
       _applyDecoratedDescriptor = module.applyDecoratedDescriptor;
@@ -600,11 +794,21 @@ System.register("chunks:///_virtual/HomeCanvasController.ts", ['./rollupPluginMo
       _decorator = module._decorator;
       Label = module.Label;
       ProgressBar = module.ProgressBar;
+      Prefab = module.Prefab;
+      Node = module.Node;
+      RichText = module.RichText;
+      Button = module.Button;
       sp = module.sp;
+      instantiate = module.instantiate;
+      Input = module.Input;
       Component = module.Component;
+    }, function (module) {
+      GameDirector = module.GameDirector;
+    }, function (module) {
+      AdditionMoneyController = module.AdditionMoneyController;
     }],
     execute: function () {
-      var _dec, _dec2, _dec3, _class, _class2, _descriptor, _descriptor2, _dec4, _dec5, _dec6, _dec7, _dec8, _dec9, _class4, _class5, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _dec10, _dec11, _class7, _class8, _descriptor8, _dec12, _dec13, _dec14, _dec15, _dec16, _class10, _class11, _descriptor9, _descriptor10, _descriptor11, _descriptor12;
+      var _dec, _dec2, _dec3, _class, _class2, _descriptor, _descriptor2, _dec4, _dec5, _dec6, _dec7, _dec8, _dec9, _class4, _class5, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _dec10, _dec11, _dec12, _dec13, _class7, _class8, _descriptor8, _descriptor9, _descriptor10, _dec14, _dec15, _dec16, _dec17, _class10, _class11, _descriptor11, _descriptor12, _descriptor13, _dec18, _dec19, _dec20, _dec21, _dec22, _class13, _class14, _descriptor14, _descriptor15, _descriptor16, _descriptor17, _dec23, _dec24, _class16, _class17, _descriptor18, _dec25, _dec26, _dec27, _dec28, _dec29, _dec30, _dec31, _dec32, _class19, _class20, _descriptor19, _descriptor20, _descriptor21, _descriptor22, _descriptor23, _descriptor24, _descriptor25;
       cclegacy._RF.push({}, "90a16o3Wp1PM6nMKIBgn0Ao", "HomeCanvasController", undefined);
       var ccclass = _decorator.ccclass,
         property = _decorator.property;
@@ -670,23 +874,117 @@ System.register("chunks:///_virtual/HomeCanvasController.ts", ['./rollupPluginMo
       })), _class5)) || _class4));
       var Currency = exports('Currency', (_dec10 = ccclass("Currency"), _dec11 = property({
         type: Label
+      }), _dec12 = property({
+        type: Prefab
+      }), _dec13 = property({
+        type: Node
       }), _dec10(_class7 = (_class8 = function Currency() {
         _initializerDefineProperty(this, "goldAmount", _descriptor8, this);
-      }, _descriptor8 = _applyDecoratedDescriptor(_class8.prototype, "goldAmount", [_dec11], {
+        _initializerDefineProperty(this, "additionCoin", _descriptor9, this);
+        _initializerDefineProperty(this, "spawPos", _descriptor10, this);
+      }, (_descriptor8 = _applyDecoratedDescriptor(_class8.prototype, "goldAmount", [_dec11], {
         configurable: true,
         enumerable: true,
         writable: true,
         initializer: null
-      }), _class8)) || _class7));
-      var HomeCanvasController = exports('HomeCanvasController', (_dec12 = ccclass('HomeCanvasController'), _dec13 = property({
-        type: UserInfo
-      }), _dec14 = property({
-        type: MonsterInfo
-      }), _dec15 = property({
-        type: Currency
+      }), _descriptor9 = _applyDecoratedDescriptor(_class8.prototype, "additionCoin", [_dec12], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: null
+      }), _descriptor10 = _applyDecoratedDescriptor(_class8.prototype, "spawPos", [_dec13], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: null
+      })), _class8)) || _class7));
+      var BottomBar = exports('BottomBar', (_dec14 = ccclass("BottomBar"), _dec15 = property({
+        type: Node
       }), _dec16 = property({
+        type: Node
+      }), _dec17 = property({
+        type: Node
+      }), _dec14(_class10 = (_class11 = function BottomBar() {
+        _initializerDefineProperty(this, "booters", _descriptor11, this);
+        _initializerDefineProperty(this, "earn", _descriptor12, this);
+        _initializerDefineProperty(this, "invite", _descriptor13, this);
+      }, (_descriptor11 = _applyDecoratedDescriptor(_class11.prototype, "booters", [_dec15], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: null
+      }), _descriptor12 = _applyDecoratedDescriptor(_class11.prototype, "earn", [_dec16], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: null
+      }), _descriptor13 = _applyDecoratedDescriptor(_class11.prototype, "invite", [_dec17], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: null
+      })), _class11)) || _class10));
+      var BootersInfo = exports('BootersInfo', (_dec18 = ccclass("BootersInfo"), _dec19 = property({
+        type: RichText
+      }), _dec20 = property({
+        type: RichText
+      }), _dec21 = property({
+        type: Label
+      }), _dec22 = property({
+        type: Button
+      }), _dec18(_class13 = (_class14 = function BootersInfo() {
+        _initializerDefineProperty(this, "title", _descriptor14, this);
+        _initializerDefineProperty(this, "additionValue", _descriptor15, this);
+        _initializerDefineProperty(this, "cost", _descriptor16, this);
+        _initializerDefineProperty(this, "updateButton", _descriptor17, this);
+      }, (_descriptor14 = _applyDecoratedDescriptor(_class14.prototype, "title", [_dec19], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: null
+      }), _descriptor15 = _applyDecoratedDescriptor(_class14.prototype, "additionValue", [_dec20], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: null
+      }), _descriptor16 = _applyDecoratedDescriptor(_class14.prototype, "cost", [_dec21], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: null
+      }), _descriptor17 = _applyDecoratedDescriptor(_class14.prototype, "updateButton", [_dec22], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: null
+      })), _class14)) || _class13));
+      var BootersPanel = exports('BootersPanel', (_dec23 = ccclass("BootersPanel"), _dec24 = property({
+        type: BootersInfo
+      }), _dec23(_class16 = (_class17 = function BootersPanel() {
+        _initializerDefineProperty(this, "booster", _descriptor18, this);
+      }, _descriptor18 = _applyDecoratedDescriptor(_class17.prototype, "booster", [_dec24], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return [];
+        }
+      }), _class17)) || _class16));
+      var HomeCanvasController = exports('HomeCanvasController', (_dec25 = ccclass('HomeCanvasController'), _dec26 = property({
+        type: UserInfo
+      }), _dec27 = property({
+        type: MonsterInfo
+      }), _dec28 = property({
+        type: Currency
+      }), _dec29 = property({
+        type: BootersPanel
+      }), _dec30 = property({
+        type: BottomBar
+      }), _dec31 = property({
+        type: Node
+      }), _dec32 = property({
         type: sp.Skeleton
-      }), _dec12(_class10 = (_class11 = /*#__PURE__*/function (_Component) {
+      }), _dec25(_class19 = (_class20 = /*#__PURE__*/function (_Component) {
         _inheritsLoose(HomeCanvasController, _Component);
         function HomeCanvasController() {
           var _this;
@@ -694,78 +992,164 @@ System.register("chunks:///_virtual/HomeCanvasController.ts", ['./rollupPluginMo
             args[_key] = arguments[_key];
           }
           _this = _Component.call.apply(_Component, [this].concat(args)) || this;
-          _initializerDefineProperty(_this, "userInfos", _descriptor9, _assertThisInitialized(_this));
-          _initializerDefineProperty(_this, "monsterInfos", _descriptor10, _assertThisInitialized(_this));
-          _initializerDefineProperty(_this, "currentcy", _descriptor11, _assertThisInitialized(_this));
-          _initializerDefineProperty(_this, "spine", _descriptor12, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "userInfos", _descriptor19, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "monsterInfos", _descriptor20, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "currentcy", _descriptor21, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "bootersPanel", _descriptor22, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "bottomBar", _descriptor23, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "touchField", _descriptor24, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "spine", _descriptor25, _assertThisInitialized(_this));
+          _this.onEarnByTouch = void 0;
+          _this.onBoostUpdate = void 0;
+          _this._isSpineIsRuning = void 0;
+          _this._playerData = void 0;
           return _this;
         }
         var _proto = HomeCanvasController.prototype;
         _proto.setPlayerInfo = function setPlayerInfo(player) {
-          console.log(player);
-          this.userInfos.username.string = player.displaynamme;
+          this.userInfos.username.string = player.username;
           this.userInfos.level.string = player.level.toString();
+          this.currentcy.goldAmount.string = player.currentMoney.toFixed(0).toString();
+          this._playerData = player;
+          this.setGameInfo(player.gameData);
+          this.checkBoosterAvailable();
         };
         _proto.setGameInfo = function setGameInfo(game) {
-          console.log(game);
-          this.monsterInfos.hp.string = game.currentHp.toString();
-          this.monsterInfos.exp.string = game.currentExp.toString();
-          this.monsterInfos.maxHp.string = game.maxHp.toString();
-          this.monsterInfos.maxExp.string = game.nextExp.toString();
+          this.monsterInfos.hp.string = game.currentHp.toFixed(0).toString();
+          this.monsterInfos.exp.string = game.currentExp.toFixed(0).toString();
+          this.monsterInfos.maxHp.string = game.maxHp.toFixed(0).toString();
+          this.monsterInfos.maxExp.string = game.nextExp.toFixed(0).toString();
           this.monsterInfos.expBar.progress = game.currentExp / game.nextExp;
+          this.bootersPanel.booster[0].title.string = "<color=#C9C9C9>Increase income by </color><color=#C4CC62>" + (game.incomeBoost * 100).toFixed(0) + "%</color>";
+          this.bootersPanel.booster[0].cost.string = game.incomeBoostCost.toFixed(0).toString();
+          this.bootersPanel.booster[1].title.string = "<color=#C9C9C9>Increase speed by </color><color=#C4CC62>" + game.increaseSpeedBoost.toFixed(1) + "%</color>";
+          this.bootersPanel.booster[1].cost.string = game.increaseSpeedBoostCost.toFixed(0).toString();
+          this.bootersPanel.booster[2].title.string = "<color=#C9C9C9>Increase recover by </color><color=#C4CC62>" + game.recoveryBoost.toFixed(1) + "%</color>";
+          this.bootersPanel.booster[2].cost.string = game.recoverBoostCost.toFixed(0).toString();
+        };
+        _proto.increaseMoneyBy = function increaseMoneyBy(addition) {
+          var adm = instantiate(this.currentcy.additionCoin);
+          adm.getComponent(AdditionMoneyController).additionMoney = addition;
+          adm.position = this.currentcy.spawPos.position;
+          adm.setParent(this.currentcy.spawPos);
         };
         _proto.start = function start() {
-          console.log("start");
-          this.spine.setAnimation(0, "flying", true);
-          // GameDirector.SoundManager().playBgm("bgm3");
-          //     this.spine.node.on(Input.EventType.MOUSE_DOWN,() => {
-          //     console.log(`Keydown`);
-          //     this.spine.setAnimation(0,"flying",false)
-          // },this);
-
-          //  this.node.on(Input.EventType.KEY_DOWN, () => {
-          //     console.log(`Keydown`);
-          //     this.spine.setAnimation(0,"flying",false) }
-          // ,this);
+          var _this2 = this;
+          GameDirector.SoundManager().playBgm("bgm3");
+          this._isSpineIsRuning = false;
+          if (this.spine) ;else {
+            console.error('Spine node not found!');
+          }
+          this.spine.setAnimation(0, "idle", true);
+          this.touchField.on(Input.EventType.MOUSE_DOWN, function () {
+            _this2.onEarnByTouch();
+            if (!_this2._isSpineIsRuning) {
+              //Need to be update later , set it = true, when animation completed set = false
+              _this2._isSpineIsRuning = false;
+              var track = _this2.spine.setAnimation(0, "flying", true);
+            }
+          }, this);
+          this.bottomBar.invite.on(Input.EventType.MOUSE_DOWN, function () {
+            localStorage.clear();
+          }, this);
+          this.bottomBar.booters.on(Input.EventType.MOUSE_DOWN, function () {
+            _this2.checkBoosterAvailable();
+          }, this);
+          this.schedule(function () {
+            this.onEarnByTouch();
+          }, 3);
         };
-
+        _proto.checkBoosterAvailable = function checkBoosterAvailable() {
+          this.bootersPanel.booster[0].updateButton.interactable = this._playerData.currentMoney >= this._playerData.gameData.incomeBoostCost;
+          this.bootersPanel.booster[1].updateButton.interactable = this._playerData.currentMoney >= this._playerData.gameData.increaseSpeedBoostCost;
+          this.bootersPanel.booster[2].updateButton.interactable = this._playerData.currentMoney >= this._playerData.gameData.recoverBoostCost;
+        };
+        _proto.updateAllBoots = function updateAllBoots() {
+          while (true) {
+            if (this._playerData.currentMoney >= this._playerData.gameData.incomeBoostCost) {
+              this.onBoostUpdate(0);
+              continue;
+            }
+            if (this._playerData.currentMoney >= this._playerData.gameData.increaseSpeedBoostCost) {
+              this.onBoostUpdate(1);
+              continue;
+            }
+            if (this._playerData.currentMoney >= this._playerData.gameData.recoverBoostCost) {
+              this.onBoostUpdate(2);
+              continue;
+            }
+            this.checkBoosterAvailable();
+            break;
+          }
+        };
+        _proto.updateIncomeButtonDown = function updateIncomeButtonDown() {
+          this.onBoostUpdate(0);
+          this.checkBoosterAvailable();
+        };
+        _proto.updateSpeedButtonDown = function updateSpeedButtonDown() {
+          this.onBoostUpdate(1);
+          this.checkBoosterAvailable();
+        };
+        _proto.updateRecoverButtonDown = function updateRecoverButtonDown() {
+          this.onBoostUpdate(2);
+          this.checkBoosterAvailable();
+        };
         return HomeCanvasController;
-      }(Component), (_descriptor9 = _applyDecoratedDescriptor(_class11.prototype, "userInfos", [_dec13], {
+      }(Component), (_descriptor19 = _applyDecoratedDescriptor(_class20.prototype, "userInfos", [_dec26], {
         configurable: true,
         enumerable: true,
         writable: true,
         initializer: function initializer() {
           return new UserInfo();
         }
-      }), _descriptor10 = _applyDecoratedDescriptor(_class11.prototype, "monsterInfos", [_dec14], {
+      }), _descriptor20 = _applyDecoratedDescriptor(_class20.prototype, "monsterInfos", [_dec27], {
         configurable: true,
         enumerable: true,
         writable: true,
         initializer: function initializer() {
           return new MonsterInfo();
         }
-      }), _descriptor11 = _applyDecoratedDescriptor(_class11.prototype, "currentcy", [_dec15], {
+      }), _descriptor21 = _applyDecoratedDescriptor(_class20.prototype, "currentcy", [_dec28], {
         configurable: true,
         enumerable: true,
         writable: true,
         initializer: function initializer() {
           return new Currency();
         }
-      }), _descriptor12 = _applyDecoratedDescriptor(_class11.prototype, "spine", [_dec16], {
+      }), _descriptor22 = _applyDecoratedDescriptor(_class20.prototype, "bootersPanel", [_dec29], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return new BootersPanel();
+        }
+      }), _descriptor23 = _applyDecoratedDescriptor(_class20.prototype, "bottomBar", [_dec30], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return new BottomBar();
+        }
+      }), _descriptor24 = _applyDecoratedDescriptor(_class20.prototype, "touchField", [_dec31], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: null
+      }), _descriptor25 = _applyDecoratedDescriptor(_class20.prototype, "spine", [_dec32], {
         configurable: true,
         enumerable: true,
         writable: true,
         initializer: function initializer() {
           return null;
         }
-      })), _class11)) || _class10));
+      })), _class20)) || _class19));
       cclegacy._RF.pop();
     }
   };
 });
 
-System.register("chunks:///_virtual/HomeLogic.ts", ['cc', './Player.ts', './Game.ts'], function (exports) {
-  var cclegacy, Player, GameData;
+System.register("chunks:///_virtual/HomeLogic.ts", ['cc', './Player.ts', './Game.ts', './GameDirector.ts'], function (exports) {
+  var cclegacy, Player, GameData, GameDirector;
   return {
     setters: [function (module) {
       cclegacy = module.cclegacy;
@@ -773,6 +1157,8 @@ System.register("chunks:///_virtual/HomeLogic.ts", ['cc', './Player.ts', './Game
       Player = module.Player;
     }, function (module) {
       GameData = module.GameData;
+    }, function (module) {
+      GameDirector = module.GameDirector;
     }],
     execute: function () {
       cclegacy._RF.push({}, "ee0ebcf3vREcpyVHAFgigRH", "HomeLogic", undefined);
@@ -782,40 +1168,102 @@ System.register("chunks:///_virtual/HomeLogic.ts", ['cc', './Player.ts', './Game
           this.player = new Player();
         }
         var _proto = HomeLogic.prototype;
-        _proto.DoLoadPayerInfo = function DoLoadPayerInfo() {
+        _proto.doGeneratePlayerInfo = function doGeneratePlayerInfo() {
           var _this = this;
           return new Promise(function (resolve, reject) {
             var player = new Player();
             player.username = localStorage.getItem("username");
             player.level = 1;
             player.currentMoney = 0;
-            _this.DoLoadGameInfo().then(function (gameinfo) {
+            player.currentIncome = 1;
+            _this.doLoadGameInfo().then(function (gameinfo) {
               player.gameData = gameinfo;
               _this.player = player;
+              _this.savePlayer();
               resolve(player);
             });
           });
         };
-        _proto.DoLoadGameInfo = function DoLoadGameInfo() {
+        _proto.doLoadPlayer = function doLoadPlayer() {
+          var _this2 = this;
+          return new Promise(function (resolve, reject) {
+            try {
+              var playerJson = localStorage.getItem("player");
+              if (playerJson) {
+                _this2.player = JSON.parse(playerJson);
+                resolve(_this2.player);
+              } else {
+                reject("cannot found player");
+              }
+            } catch (err) {
+              reject(err);
+            }
+          });
+        };
+        _proto.doLoadGameInfo = function doLoadGameInfo() {
           return new Promise(function (resolve, reject) {
             var game = new GameData();
             game.currentExp = 0;
             game.nextExp = 20;
             game.currentHp = 100;
             game.maxHp = 100;
+            game.incomeBoost = 0;
+            game.incomeBoostCost = 20;
+            game.increaseSpeedBoost = 0;
+            game.increaseSpeedBoostCost = 20;
+            game.recoveryBoost = 0;
+            game.recoverBoostCost = 20;
+            resolve(game);
           });
         };
-        _proto.DoEarn = function DoEarn() {
-          var _this2 = this;
+        _proto.doEarn = function doEarn() {
+          var _this3 = this;
           return new Promise(function (resolve, reject) {
-            _this2.player.currentMoney = _this2.player.currentMoney + 1;
-            _this2.player.gameData.currentExp = _this2.player.gameData.currentExp + 1;
-            if (_this2.player.gameData.currentExp > _this2.player.gameData.nextExp) {
-              _this2.player.gameData.currentExp = 0;
-              _this2.player.gameData.nextExp *= 1.5;
-              _this2.player.level += 1;
+            _this3.player.currentMoney = _this3.player.currentMoney + _this3.player.currentIncome + _this3.player.gameData.incomeBoost;
+            _this3.player.gameData.currentExp = _this3.player.gameData.currentExp + 1;
+            _this3.player.gameData.currentHp = _this3.player.gameData.currentHp - 0.5;
+            if (_this3.player.gameData.currentExp >= _this3.player.gameData.nextExp) {
+              _this3.player.gameData.currentExp = 0;
+              _this3.player.gameData.nextExp *= 1.5;
+              _this3.player.level += 1;
+              _this3.player.gameData.currentHp = _this3.player.gameData.maxHp;
+              //dont do that later ~_~
+              GameDirector.SoundManager().playSfx("levelup");
             }
-            resolve(_this2.player);
+            GameDirector.SoundManager().playSfx("coin");
+            resolve(_this3.player);
+          });
+        };
+        _proto.recover = function recover() {
+          var _this4 = this;
+          return new Promise(function (resolve, reject) {
+            _this4.player.gameData.currentHp = Math.max(_this4.player.gameData.currentHp + 1 * _this4.player.gameData.recoveryBoost, _this4.player.gameData.maxHp);
+            resolve(_this4.player);
+          });
+        };
+        _proto.savePlayer = function savePlayer() {
+          var json = JSON.stringify(this.player);
+          localStorage.setItem("player", json);
+        };
+        _proto.doBoost = function doBoost(type) {
+          var _this5 = this;
+          return new Promise(function (resolve, reject) {
+            if (type == 0 && _this5.player.currentMoney > _this5.player.gameData.incomeBoostCost) {
+              _this5.player.currentMoney = _this5.player.currentMoney - _this5.player.gameData.incomeBoostCost;
+              _this5.player.gameData.incomeBoost += 0.2;
+              _this5.player.gameData.incomeBoostCost *= 1.5;
+            }
+            if (type == 1 && _this5.player.currentMoney > _this5.player.gameData.increaseSpeedBoost) {
+              _this5.player.currentMoney = _this5.player.currentMoney - _this5.player.gameData.increaseSpeedBoostCost;
+              _this5.player.gameData.increaseSpeedBoost += 0.2;
+              _this5.player.gameData.increaseSpeedBoostCost *= 1.5;
+            }
+            if (type == 2 && _this5.player.currentMoney > _this5.player.gameData.recoveryBoost) {
+              _this5.player.currentMoney = _this5.player.currentMoney - _this5.player.gameData.recoverBoostCost;
+              _this5.player.gameData.recoveryBoost += 2;
+              _this5.player.gameData.recoverBoostCost *= 1.5;
+            }
+            resolve(_this5.player);
           });
         };
         return HomeLogic;
@@ -855,6 +1303,7 @@ System.register("chunks:///_virtual/HomeSceneController.ts", ['./rollupPluginMod
           _this = _GamercialSceneContro.call.apply(_GamercialSceneContro, [this].concat(args)) || this;
           _this._homeCanvas = void 0;
           _this._homeLogic = void 0;
+          _this._player = void 0;
           return _this;
         }
         var _proto = HomeSceneController.prototype;
@@ -863,13 +1312,29 @@ System.register("chunks:///_virtual/HomeSceneController.ts", ['./rollupPluginMod
           console.log("HomeSceneController on scene loaded");
           this._homeLogic = new HomeLogic();
           this._homeCanvas = this.node.parent.getComponentInChildren(HomeCanvasController);
-          this._homeLogic.DoLoadPayerInfo().then(function (result) {
-            var player = result;
-            _this2._homeCanvas.setPlayerInfo(player);
-            _this2._homeCanvas.setGameInfo(player.gameData);
+          this._homeLogic.doLoadPlayer().then(function (result) {
+            console.log("Home scene res");
+            _this2._player = result;
+            _this2.updateUiPlayer();
           })["catch"](function (err) {
-            console.error("Cannot load player info " + err);
+            console.warn(err);
+            _this2._homeLogic.doGeneratePlayerInfo().then(function (result) {
+              console.log("HomeSceneController load player");
+              _this2._player = result;
+              _this2.updateUiPlayer();
+            })["catch"](function (err) {
+              console.error("Cannot load player info " + err);
+            });
           });
+          this._homeCanvas.onEarnByTouch = this.earnByTouch.bind(this);
+          this._homeCanvas.onBoostUpdate = this.bootsUpdate.bind(this);
+        };
+        _proto.updateUiPlayer = function updateUiPlayer() {
+          console.log("updateUiPlayer");
+          console.log(this._player);
+          this._homeCanvas.setPlayerInfo(this._player);
+          this._homeCanvas.setGameInfo(this._player.gameData);
+          this.autoSavePlayer();
         };
         _proto.onSceneUnLoad = function onSceneUnLoad() {
           console.log("HomeSceneController on scene unloaded");
@@ -879,6 +1344,32 @@ System.register("chunks:///_virtual/HomeSceneController.ts", ['./rollupPluginMod
         };
         _proto.onAssetUnload = function onAssetUnload() {
           console.log("HomeSceneController on asset unloaded");
+        };
+        _proto.earnByTouch = function earnByTouch() {
+          var _this3 = this;
+          this._homeLogic.doEarn().then(function (result) {
+            _this3._player = result;
+            _this3._homeCanvas.setPlayerInfo(_this3._player);
+            _this3._homeCanvas.setGameInfo(_this3._player.gameData);
+            _this3._homeCanvas.increaseMoneyBy(_this3._player.currentIncome + _this3._player.gameData.incomeBoost);
+          });
+        };
+        _proto.autoSavePlayer = function autoSavePlayer() {
+          this.schedule(function () {
+            this.RequestSavePlayer();
+          }, 3);
+        };
+        _proto.RequestSavePlayer = function RequestSavePlayer() {
+          this._homeLogic.savePlayer();
+          this._homeLogic.recover().then(function (result) {});
+        };
+        _proto.bootsUpdate = function bootsUpdate(type) {
+          var _this4 = this;
+          this._homeLogic.doBoost(type).then(function (value) {
+            _this4._player = value;
+            _this4._homeCanvas.setPlayerInfo(_this4._player);
+            _this4._homeCanvas.setGameInfo(_this4._player.gameData);
+          });
         };
         return HomeSceneController;
       }(GamercialSceneController)) || _class));
@@ -982,6 +1473,7 @@ System.register("chunks:///_virtual/LobbyCanvasController.ts", ['./rollupPluginM
           _initializerDefineProperty(_this, "_errorNotificationText", _descriptor6, _assertThisInitialized(_this));
           _this.onLoginEvent = void 0;
           _this.onSignUp = void 0;
+          _this.onTabToEnter = void 0;
           return _this;
         }
         var _proto = LobbyCanvasController.prototype;
@@ -991,6 +1483,7 @@ System.register("chunks:///_virtual/LobbyCanvasController.ts", ['./rollupPluginM
         _proto.initScene = function initScene() {
           var _this2 = this;
           this._tapToLoginField.on(Input.EventType.MOUSE_DOWN, function () {
+            _this2.onTabToEnter();
             _this2._loginPannel.active = true;
           }, this);
           this._loginButton.on(Input.EventType.MOUSE_DOWN, function () {
@@ -1069,10 +1562,27 @@ System.register("chunks:///_virtual/LobbyLogic.ts", ['cc'], function (exports) {
           // });
         };
 
-        _proto.SignUp = function SignUp(username) {
+        _proto.signUp = function signUp(username) {
           return new Promise(function (resolve, reject) {
             localStorage.setItem("username", username);
             resolve(username);
+          });
+        };
+        _proto.loadPlayer = function loadPlayer() {
+          return new Promise(function (resolve, reject) {
+            try {
+              var playerJson = localStorage.getItem("player");
+              if (playerJson) {
+                var player = JSON.parse(playerJson);
+                console.log("Lobby logic load player");
+                console.log(player);
+                resolve(player);
+              } else {
+                reject("cannot found player");
+              }
+            } catch (err) {
+              reject(err);
+            }
           });
         };
         return LobbyLogic;
@@ -1112,14 +1622,14 @@ System.register("chunks:///_virtual/LobbySceneController.ts", ['./rollupPluginMo
             args[_key] = arguments[_key];
           }
           _this = _GamercialSceneContro.call.apply(_GamercialSceneContro, [this].concat(args)) || this;
-          _this._lobbyLogic = void 0;
+          _this._logic = void 0;
           _this._canvas = void 0;
           return _this;
         }
         var _proto = LobbySceneController.prototype;
         _proto.onSceneLoaded = function onSceneLoaded() {
           console.log("LobbySceneController on scene loaded");
-          this._lobbyLogic = new LobbyLogic();
+          this._logic = new LobbyLogic();
           this._canvas = this.node.parent.getComponentInChildren(LobbyCanvasController);
           if (!this._canvas) {
             console.log("Cannot found canvas");
@@ -1130,22 +1640,28 @@ System.register("chunks:///_virtual/LobbySceneController.ts", ['./rollupPluginMo
           });
           this._canvas.onLoginEvent = this.onLogin.bind(this);
           this._canvas.onSignUp = this.onSignUp.bind(this);
+          this._canvas.onTabToEnter = this.onTabToPlay.bind(this);
         };
         _proto.onSceneUnLoad = function onSceneUnLoad() {};
         _proto.onAssetLoaded = function onAssetLoaded() {};
         _proto.onAssetUnload = function onAssetUnload() {};
         _proto.onLogin = function onLogin(username, password) {
           console.log("LobbySceneController onLogin");
-          this._lobbyLogic.logIn(username, password, function () {
+          this._logic.logIn(username, password, function () {
             GameDirector.SceneManager().loadScene("Home");
           }, function (error) {});
         };
         _proto.onSignUp = function onSignUp(username) {
-          this._lobbyLogic.SignUp(username).then(function (result) {
+          this._logic.signUp(username).then(function (result) {
             console.log("Sign up with username " + result);
             GameDirector.SceneManager().loadScene("Home");
           })["catch"](function (err) {
             console.error("Signup err " + err);
+          });
+        };
+        _proto.onTabToPlay = function onTabToPlay() {
+          this._logic.loadPlayer().then(function (result) {
+            GameDirector.SceneManager().loadScene("Home");
           });
         };
         return LobbySceneController;
@@ -1182,9 +1698,9 @@ System.register("chunks:///_virtual/LoginDetail.ts", ['cc', './User.ts'], functi
   };
 });
 
-System.register("chunks:///_virtual/main", ['./debug-view-runtime-control.ts', './GraphQlQuery.ts', './INetworkData.ts', './NetworkManager.ts', './NetworkManagerComponent.ts', './NetworkManagerConfig.ts', './UploadFileInfo.ts', './EntryScene.ts', './GamercialSceneController.ts', './SceneManager.ts', './SceneManagerComponent.ts', './SceneManagerConfig.ts', './SfxButtonController.ts', './SfxDestroyWhenEnded.ts', './SoundManager.ts', './SoundManagerComponent.ts', './SoundManagerConfig.ts', './IState.ts', './StateMachine.ts', './MapBlockType.ts', './TerrainManager.ts', './TerrainManagerComponent.ts', './TerrainManagerConfig.ts', './UiButtonEvents.ts', './AsNode.ts', './GameDirector.ts', './ISystemBase.ts', './MonoSingleton.ts', './MonoSingletonConfig.ts', './Queue.ts', './Game.ts', './LoginDetail.ts', './Player.ts', './User.ts', './HomeCanvasController.ts', './HomeLogic.ts', './HomeSceneController.ts', './LobbyCanvasController.ts', './LobbyLogic.ts', './LobbySceneController.ts'], function () {
+System.register("chunks:///_virtual/main", ['./debug-view-runtime-control.ts', './GraphQlQuery.ts', './INetworkData.ts', './NetworkManager.ts', './NetworkManagerComponent.ts', './NetworkManagerConfig.ts', './UploadFileInfo.ts', './EntryScene.ts', './GamercialSceneController.ts', './SceneManager.ts', './SceneManagerComponent.ts', './SceneManagerConfig.ts', './SfxButtonController.ts', './SfxDestroyWhenEnded.ts', './SoundManager.ts', './SoundManagerComponent.ts', './SoundManagerConfig.ts', './IState.ts', './StateMachine.ts', './MapBlockType.ts', './TerrainManager.ts', './TerrainManagerComponent.ts', './TerrainManagerConfig.ts', './UiButtonEvents.ts', './AsNode.ts', './GameDirector.ts', './ISystemBase.ts', './MonoSingleton.ts', './MonoSingletonConfig.ts', './Queue.ts', './Game.ts', './LoginDetail.ts', './Player.ts', './User.ts', './AdditionMoneyController.ts', './BoundingGiftController.ts', './HomeCanvasController.ts', './HomeLogic.ts', './HomeSceneController.ts', './LobbyCanvasController.ts', './LobbyLogic.ts', './LobbySceneController.ts'], function () {
   return {
-    setters: [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+    setters: [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
     execute: function () {}
   };
 });
@@ -1474,6 +1990,7 @@ System.register("chunks:///_virtual/Player.ts", ['./rollupPluginModLoBabelHelper
           _this.displaynamme = void 0;
           _this.level = void 0;
           _this.currentMoney = void 0;
+          _this.currentIncome = void 0;
           _this.gameData = void 0;
           return _this;
         } // public static getFullGraphFormat() : string {
@@ -1944,6 +2461,7 @@ System.register("chunks:///_virtual/SoundManager.ts", ['./rollupPluginModLoBabel
           }
           var soundPath = sound[0].dir;
           if (this._soundClips.has(soundPath)) {
+            this._bgmAudioSource.stop();
             this._bgmAudioSource.clip = this._soundClips.get(soundPath);
             this._bgmAudioSource.loop = true;
             this._bgmAudioSource.play();
