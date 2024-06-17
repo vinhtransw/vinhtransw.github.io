@@ -1,38 +1,38 @@
 {
-  "importBase": "import",
-  "nativeBase": "native",
-  "name": "main",
-  "deps": [],
-  "uuids": [
-    "ba21476f-2866-4f81-9c4d-6e359316e448 ",
-    "fc809538-5874-40c2-807a-43bfdc29d2c2",
-    "fd8ec536-a354-4a17-9c74-4f3883c378c8"
-  ],
-  "paths": {
-    "fc809538-5874-40c2-807a-43bfdc29d2c2": [
-      "db:/assets/Gamerical/SceneManager/EntryScene",
-      "cc.SceneAsset"
+    "importBase": "import",
+    "nativeBase": "native",
+    "name": "main",
+    "deps": [],
+    "uuids": [
+        "ba21476f-2866-4f81-9c4d-6e359316e448",
+        "fc809538-5874-40c2-807a-43bfdc29d2c2",
+        "fd8ec536-a354-4a17-9c74-4f3883c378c8"
     ],
-    "fd8ec536-a354-4a17-9c74-4f3883c378c8": [
-      "db:/internal/default_renderpipeline/builtin-forward",
-      "cc.RenderPipeline"
-    ],
-    "ba21476f-2866-4f81-9c4d-6e359316e448": [
-      "db:/internal/physics/default-physics-material",
-      "cc.PhysicsMaterial"
-    ]
-  },
-  "scenes": {
-    "db://assets/Gamerical/SceneManager/EntryScene.scene": "fc809538-5874-40c2-807a-43bfdc29d2c2"
-  },
-  "packs": {},
-  "versions": {
-    "import": [],
-    "native": []
-  },
-  "redirect": [],
-  "debug": true,
-  "extensionMap": {},
-  "hasPreloadScript": true,
-  "dependencyRelationships": {}
+    "paths": {
+        "fc809538-5874-40c2-807a-43bfdc29d2c2": [
+            "db:/assets/Gamerical/SceneManager/EntryScene",
+            "cc.SceneAsset"
+        ],
+        "fd8ec536-a354-4a17-9c74-4f3883c378c8": [
+            "db:/internal/default_renderpipeline/builtin-forward",
+            "cc.RenderPipeline"
+        ],
+        "ba21476f-2866-4f81-9c4d-6e359316e448": [
+            "db:/internal/physics/default-physics-material",
+            "cc.PhysicsMaterial"
+        ]
+    },
+    "scenes": {
+        "db://assets/Gamerical/SceneManager/EntryScene.scene": "fc809538-5874-40c2-807a-43bfdc29d2c2"
+    },
+    "packs": {},
+    "versions": {
+        "import": [],
+        "native": []
+    },
+    "redirect": [],
+    "debug": true,
+    "extensionMap": {},
+    "hasPreloadScript": true,
+    "dependencyRelationships": {}
 }

@@ -1,11 +1,11 @@
-System.register([], (function (exports)   {
+System.register([], (function (exports) {
   'use strict';
   return {
     execute: (function () {
 
       var spineWasm = exports('default', (() => {
         var _scriptDir = typeof document !== 'undefined' && document.currentScript ? document.currentScript.src : undefined;
-
+        
         return (
       function(spineWasm = {})  {
 
